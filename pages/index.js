@@ -1,3 +1,5 @@
+// https://nextui.org/docs/components
+
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
@@ -18,56 +20,32 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Dow Track Pack
         </h1>
 
+        
 
         <ModalScanner
           materials={materials}
           setMaterials={setMaterials}
         />
-        {/* <Scanner
-          materials={materials}
-          setMaterials={setMaterials}
-        /> */}
 
-        <ul>
+        <Collapse.Group>
         {
           materials.map(value => {
-            return <li key={value}>{value}</li>
+            return (
+              <Collapse title={'Item: ' + value} key={value}>
+                <Text>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                  minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                  aliquip ex ea commodo consequat.
+                </Text>
+              </Collapse>
+            )
           })
         }
-        </ul>       
-
-        <div>
-        <Collapse.Group>
-      <Collapse title="Option A">
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Text>
-      </Collapse>
-      <Collapse title="Option B">
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Text>
-      </Collapse>
-      <Collapse title="Option C">
-        <Text>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </Text>
-      </Collapse>
-    </Collapse.Group>
-        </div>
-
+        </Collapse.Group>      
       </main>
 
       <footer className={styles.footer}>
