@@ -21,7 +21,7 @@ export default function ModalScanner({ materials, setMaterials }) {
   return (
     <div>
       <Button auto shadow onClick={handler}>
-        Open modal
+        Scan
       </Button>
       <Modal
         closeButton
