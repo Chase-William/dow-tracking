@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
-import Scanner from '../comps/Scanner'
+import ModalScanner from '../comps/ModalScanner'
 import { Collapse, Text } from '@nextui-org/react';
-
+import React from 'react'
 
 export default function Home() {
+  const [materials, setMaterials] = React.useState([])
+
   return (
     <div className={styles.container}>
       <Head>
@@ -19,7 +21,23 @@ export default function Home() {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-        <Scanner/>
+
+        <ModalScanner
+          materials={materials}
+          setMaterials={setMaterials}
+        />
+        {/* <Scanner
+          materials={materials}
+          setMaterials={setMaterials}
+        /> */}
+
+        <ul>
+        {
+          materials.map(value => {
+            return <li key={value}>{value}</li>
+          })
+        }
+        </ul>       
 
         <div>
         <Collapse.Group>

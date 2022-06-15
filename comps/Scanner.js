@@ -9,7 +9,7 @@ export default class Test extends Component {
   constructor(props){
     super(props)
     this.state = {
-      delay: 100,
+      delay: 800,
       result: 'No result',
     }
 
@@ -17,9 +17,7 @@ export default class Test extends Component {
   }
   handleScan(data){
     if (!!data) {
-      this.setState({
-        result: data.text,
-      })
+      this.props.onScanned(data.text)
     }   
   }
   handleError(err){
