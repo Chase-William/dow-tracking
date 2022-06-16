@@ -36,13 +36,14 @@ export default class Test extends Component {
           style={previewStyle}          
           onError={this.handleError}
           onScan={this.handleScan}
-          facingMode={'rear'}
-          chooseDeviceId={(rear, all) => {
-            if (!!rear && rear.length > 0) {
-              return rear[0]
-            }
-            return all[0]
-          }}
+          facingmode={'rear'}
+          // chooseDeviceId={(rear, all) => {
+          //   console.log('adasd')
+          //   if (!!rear && rear.length > 0) {              
+          //     return rear[0]
+          //   }
+          //   return all[0]
+          // }}
           />
       </div>
     )
