@@ -11,9 +11,9 @@ export default function ModalScanner({ handleMaterialScanned }) {
     console.log("closed");
   };
 
-  const itemScannedHandler = (text) => {
+  const itemScannedHandler = (text) => {    
+    handleMaterialScanned(text)
     closeHandler()
-    handleMaterialScanned(text)     
   }
 
   return (
@@ -22,6 +22,7 @@ export default function ModalScanner({ handleMaterialScanned }) {
         Scan
       </Button>
       <Modal
+        fullScreen
         closeButton
         aria-labelledby="modal-title"
         open={visible}

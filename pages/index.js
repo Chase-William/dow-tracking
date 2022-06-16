@@ -5,7 +5,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import ModalScanner from '../comps/ModalScanner'
 import { Collapse, Grid, Text, Textarea } from '@nextui-org/react';
-import React from 'react'
+import React, { useEffect } from 'react'
 
 
 export default function Home() {
@@ -113,7 +113,7 @@ export default function Home() {
         "rawMaterials": [
           "Something",
           "Something Else",
-          "Something More"
+          "Something Less"
         ]
       }
     ])
@@ -125,6 +125,9 @@ export default function Home() {
       const mat = getData().find(batch => batch.batchId == text)
       setMaterials(materials.set(text, mat))
       setCurrentMaterial(mat)
+    } else {      
+      console.log(materials.get(text))      
+      setCurrentMaterial(materials.get(text))
     }
   }
 
@@ -137,7 +140,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        {!!currentMaterial ?
+        {currentMaterial !== null ?
           <Grid.Container gap={2}>
             <Grid xs={8}>
               <h2 style={{ fontSize: 'xx-large' }}>
@@ -162,15 +165,12 @@ export default function Home() {
           </>
         }
 
-
-
-
-        {!!currentMaterial &&
+        {currentMaterial != null &&
           <>
             <Textarea
               readOnly
               label="Batch Id"
-              initialValue={currentMaterial.batchId}
+              value={currentMaterial.batchId}
               placeholder="N/A"
               minRows={1}
               width={'100%'}
@@ -181,7 +181,7 @@ export default function Home() {
                   readOnly
                   label="Material Id"
                   placeholder="N/A"
-                  initialValue={currentMaterial.materialId}
+                  value={currentMaterial.materialId}
                   minRows={1}
                   width={'100%'}
                 />
@@ -191,7 +191,7 @@ export default function Home() {
                   readOnly
                   label="Material Name"
                   placeholder="N/A"
-                  initialValue="HDBP"
+                  value="HDBP"
                   minRows={1}
                   width={'100%'}
                 />
@@ -202,7 +202,7 @@ export default function Home() {
                 <Textarea
                   readOnly
                   label="Customer Id"
-                  initialValue={currentMaterial.customerId}
+                  value={currentMaterial.customerId}
                   placeholder="N/A"
                   minRows={1}
                   width={'100%'}
@@ -212,7 +212,7 @@ export default function Home() {
                 <Textarea
                   readOnly
                   label="Customer"
-                  initialValue="Jeff"
+                  value="Jeff"
                   placeholder="N/A"
                   minRows={1}
                   width={'100%'}
@@ -222,7 +222,7 @@ export default function Home() {
             <Textarea
               readOnly
               label="Site Created"
-              initialValue={currentMaterial.siteCreated}
+              value={currentMaterial.siteCreated}
               placeholder="3475 E North Union Rd, Bay City, MI 48706"
               minRows={1}
               width={'100%'}
@@ -231,7 +231,7 @@ export default function Home() {
               readOnly
               label="Quantity"
               placeholder="0"
-              initialValue={currentMaterial.quantity}
+              value={currentMaterial.quantity}
               minRows={1}
               width={'100%'}
             />
@@ -248,7 +248,7 @@ export default function Home() {
                             readOnly
                             label="Transit Id"
                             placeholder="N/A"
-                            initialValue={transit.transitId}
+                            value={transit.transitId}
                             minRows={1}
                             width={'100%'}
                           />
@@ -258,7 +258,7 @@ export default function Home() {
                                 readOnly
                                 label="Date & Time Departure"
                                 placeholder="N/A"
-                                initialValue={transit.dateTimeDeparture}
+                                value={transit.dateTimeDeparture}
                                 minRows={1}
                                 width={'100%'}
                               />
@@ -268,7 +268,7 @@ export default function Home() {
                                 readOnly
                                 label="Date & Time Received"
                                 placeholder="N/A"
-                                initialValue={transit.dateTimeReceived}
+                                value={transit.dateTimeReceived}
                                 minRows={1}
                                 width={'100%'}
                               />
@@ -278,7 +278,7 @@ export default function Home() {
                             readOnly
                             label="Delivered From"
                             placeholder="N/A"
-                            initialValue={transit.deliveredFrom}
+                            value={transit.deliveredFrom}
                             minRows={1}
                             width={'100%'}
                           />
@@ -286,7 +286,7 @@ export default function Home() {
                             readOnly
                             label="Delivered To"
                             placeholder="N/A"
-                            initialValue={transit.deliveredTo}
+                            value={transit.deliveredTo}
                             minRows={1}
                             width={'100%'}
                           />
@@ -296,7 +296,7 @@ export default function Home() {
                                 readOnly
                                 label="Transit Type"
                                 placeholder="N/A"
-                                initialValue={transit.transitType}
+                                value={transit.transitType}
                                 minRows={1}
                                 width={'100%'}
                               />
@@ -306,7 +306,7 @@ export default function Home() {
                                 readOnly
                                 label="Arrived"
                                 placeholder="No"
-                                initialValue={transit.arrived ? 'Yes' : 'No'}
+                                value={transit.arrived ? 'Yes' : 'No'}
                                 minRows={1}
                                 width={'100%'}
                               />
@@ -326,7 +326,7 @@ export default function Home() {
                     readOnly
                     label="Carbon Emission"
                     placeholder="0"
-                    initialValue={currentMaterial.sustainabilityMetrics.carbonEmission}
+                    value={currentMaterial.sustainabilityMetrics.carbonEmission}
                     minRows={1}
                     width={'100%'}
                   />
@@ -334,7 +334,7 @@ export default function Home() {
                     readOnly
                     label="Electricity Used"
                     placeholder="0"
-                    initialValue={currentMaterial.sustainabilityMetrics.electricityUsed}
+                    value={currentMaterial.sustainabilityMetrics.electricityUsed}
                     minRows={1}
                     width={'100%'}
                   />
@@ -342,7 +342,7 @@ export default function Home() {
                     readOnly
                     label="Water Used"
                     placeholder="0"
-                    initialValue={currentMaterial.sustainabilityMetrics.waterUsed}
+                    value={currentMaterial.sustainabilityMetrics.waterUsed}
                     minRows={1}
                     width={'100%'}
                   />
