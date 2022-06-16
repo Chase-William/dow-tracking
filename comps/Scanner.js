@@ -36,10 +36,8 @@ export default class Test extends Component {
           style={previewStyle}          
           onError={this.handleError}
           onScan={this.handleScan}     
-          
-          constraints={{
-            facingMode: { ideal: 'environment' }
-          }}     
+          facingMode= {'rear'}
+
           // chooseDeviceId={(rear, all) => {
           //   console.log('adasd')
           //   if (!!rear && rear.length > 0) {              
