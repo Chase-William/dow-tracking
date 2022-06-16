@@ -38,7 +38,7 @@ export default class Test extends Component {
           onScan={this.handleScan}     
           
           constraints={{
-            facingMode: 'user'
+            facingMode: 'rear'
           }}     
           // chooseDeviceId={(rear, all) => {
           //   console.log('adasd')
