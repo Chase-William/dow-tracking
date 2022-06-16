@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import dynamic from "next/dynamic";
-const QrReader = dynamic(() => import('react-qr-scanner'), {
+// const QrReader = dynamic(() => import('react-qr-scanner'), {
+//   ssr: false
+//   })
+const QrReader = dynamic(() => import('modern-react-qr-reader'), {
   ssr: false
-  })
+})
 // import QrReader from 'react-qr-scanner'
 
 export default class Test extends Component {
@@ -16,8 +19,9 @@ export default class Test extends Component {
     this.handleScan = this.handleScan.bind(this)
   }
   handleScan(data){
+    console.log(data)
     if (!!data) {
-      this.props.onScanned(data.text)
+      this.props.onScanned(data)
     }   
   }
   handleError(err){
@@ -36,7 +40,7 @@ export default class Test extends Component {
           style={previewStyle}          
           onError={this.handleError}
           onScan={this.handleScan}     
-          facingMode= {'rear'}
+          facingMode={"environment"}
 
           // chooseDeviceId={(rear, all) => {
           //   console.log('adasd')
