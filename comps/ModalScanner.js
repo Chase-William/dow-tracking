@@ -2,7 +2,7 @@ import React from "react";
 import { Modal, Button, Text, Input, Row, Checkbox } from "@nextui-org/react";
 import Scanner from './Scanner';
 
-export default function ModalScanner({ materials, setMaterials }) {
+export default function ModalScanner({ handleMaterialScanned }) {
   const [visible, setVisible] = React.useState(false);
   const handler = () => setVisible(true);
 
@@ -13,9 +13,7 @@ export default function ModalScanner({ materials, setMaterials }) {
 
   const itemScannedHandler = (text) => {
     closeHandler()
-    if (!materials.includes(text)) {
-      setMaterials(materials.concat(text))
-    }    
+    handleMaterialScanned(text)     
   }
 
   return (
@@ -39,7 +37,6 @@ export default function ModalScanner({ materials, setMaterials }) {
         </Modal.Header>
         <Modal.Body>
           <Scanner
-            materials={materials}
             onScanned={itemScannedHandler}
           />
         </Modal.Body>
