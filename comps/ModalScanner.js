@@ -18,7 +18,7 @@ export default function ModalScanner({ handleMaterialScanned }) {
 
   return (
     <div>
-      <Button auto shadow onClick={handler}>
+      <Button size="lg" auto shadow onClick={handler}>
         Scan
       </Button>
       <Modal
@@ -29,10 +29,7 @@ export default function ModalScanner({ handleMaterialScanned }) {
       >
         <Modal.Header>
           <Text id="modal-title" size={18}>
-            Welcome to
-            <Text b size={18}>
-              NextUI
-            </Text>
+            Scan a Batch
           </Text>
         </Modal.Header>
         <Modal.Body>
@@ -43,9 +40,6 @@ export default function ModalScanner({ handleMaterialScanned }) {
         <Modal.Footer>
           <Button auto flat color="error" onClick={closeHandler}>
             Close
-          </Button>
-          <Button auto onClick={closeHandler}>
-            Sign in
           </Button>
         </Modal.Footer>
       </Modal>

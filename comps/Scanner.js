@@ -30,14 +30,14 @@ export default class Test extends Component {
     }
 
     return(
-      <div>
+      <div align="center">
         <QrReader
           delay={this.state.delay}
-          style={previewStyle}
+          style={previewStyle}          
           onError={this.handleError}
           onScan={this.handleScan}
+          facingMode="front" 
           />
-        <p>{this.state.result}</p>
       </div>
     )
   }

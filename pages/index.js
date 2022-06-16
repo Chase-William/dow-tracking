@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import ModalScanner from '../comps/ModalScanner'
-import { Collapse, Grid, Text, Textarea, Card, Container, Row, Col } from '@nextui-org/react';
+import { Collapse, Grid, Text, Textarea } from '@nextui-org/react';
 import React from 'react'
 import getData from './getData';
 
@@ -32,14 +32,33 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h3 className={styles.title}>
-          Dow Track Pack
-        </h3>
+        {!!currentMaterial ?
+          <Grid.Container gap={2}>
+            <Grid xs={8}>
+              <h2 style={{ fontSize: 'xx-large' }}>
+                Dow Track Pack
+              </h2>
+            </Grid>
+            <Grid xs={4}>
+              <ModalScanner
+                materials={materials}
+                handleMaterialScanned={handleMaterialScanned}
+              />
+            </Grid>
+          </Grid.Container> :
+          <>
+            <h3 className={styles.title} >
+              Dow Track Pack
+            </h3>
+            <ModalScanner
+              materials={materials}
+              handleMaterialScanned={handleMaterialScanned}
+            />
+          </>
+        }
 
-        <ModalScanner
-          materials={materials}
-          handleMaterialScanned={handleMaterialScanned}
-        />
+
+
 
         {!!currentMaterial &&
           <>
