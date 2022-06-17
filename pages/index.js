@@ -9,9 +9,6 @@ import React, { useEffect } from 'react'
 
 
 export default function Home() {
-  const [materials, setMaterials] = React.useState(new Map())
-  const [currentMaterial, setCurrentMaterial] = React.useState(null)
-
   const getData = () => {
     return ([
       {
@@ -119,14 +116,20 @@ export default function Home() {
     ])
   }
 
+  const [materials, setMaterials] = React.useState(new Map())
+  // remove default value for anything other than ui testing/dev
+  const [currentMaterial, setCurrentMaterial] = React.useState(getData()[0])
+
+
+
   const handleMaterialScanned = (text) => {
     if (!materials.has(text)) {
       // Find current material from example data and set
       const mat = getData().find(batch => batch.batchId == text)
       setMaterials(materials.set(text, mat))
       setCurrentMaterial(mat)
-    } else {      
-      console.log(materials.get(text))      
+    } else {
+      console.log(materials.get(text))
       setCurrentMaterial(materials.get(text))
     }
   }
@@ -143,9 +146,12 @@ export default function Home() {
         {currentMaterial !== null ?
           <Grid.Container gap={2}>
             <Grid xs={8}>
-              <h2 style={{ fontSize: 'xx-large' }}>
-                Dow Track Pack
-              </h2>
+              <Text 
+                css={{textGradient: "45deg, $purple600 -20%, $pink600 100%"}}
+                size={30}
+                >
+                  Dow Tracking System
+                </Text>
             </Grid>
             <Grid xs={4}>
               <ModalScanner
@@ -158,6 +164,7 @@ export default function Home() {
             <h3 className={styles.title} >
               Dow Track Pack
             </h3>
+            <Text css={{textGradient: "45deg, $purple600 -20%, $pink600 100%"}}></Text>
             <ModalScanner
               materials={materials}
               handleMaterialScanned={handleMaterialScanned}
@@ -176,7 +183,7 @@ export default function Home() {
               width={'100%'}
             />
             <Grid.Container gap={1.5} justify="center">
-              <Grid xs={6}>
+              <Grid xs>
                 <Textarea
                   readOnly
                   label="Material Id"
@@ -186,7 +193,7 @@ export default function Home() {
                   width={'100%'}
                 />
               </Grid>
-              <Grid xs={6}>
+              <Grid xs>
                 <Textarea
                   readOnly
                   label="Material Name"
@@ -243,7 +250,7 @@ export default function Home() {
                   {currentMaterial.transits.map(transit => {
                     return (
                       <Collapse.Group key={transit.transitId}>
-                        <Collapse title={transit.transitId}>
+                        <Collapse title={'Id: ' + transit.transitId}>
                           <Textarea
                             readOnly
                             label="Transit Id"
@@ -253,7 +260,7 @@ export default function Home() {
                             width={'100%'}
                           />
                           <Grid.Container gap={1.5} justify="center">
-                            <Grid xs={6}>
+                            <Grid xs>
                               <Textarea
                                 readOnly
                                 label="Date & Time Departure"
@@ -263,7 +270,7 @@ export default function Home() {
                                 width={'100%'}
                               />
                             </Grid>
-                            <Grid xs={6}>
+                            <Grid xs>
                               <Textarea
                                 readOnly
                                 label="Date & Time Received"
@@ -291,7 +298,7 @@ export default function Home() {
                             width={'100%'}
                           />
                           <Grid.Container gap={1.5} justify="center">
-                            <Grid xs={6}>
+                            <Grid xs>
                               <Textarea
                                 readOnly
                                 label="Transit Type"
@@ -301,7 +308,7 @@ export default function Home() {
                                 width={'100%'}
                               />
                             </Grid>
-                            <Grid xs={6}>
+                            <Grid xs>
                               <Textarea
                                 readOnly
                                 label="Arrived"
@@ -326,48 +333,50 @@ export default function Home() {
                     readOnly
                     label="Carbon Emission"
                     placeholder="0"
-                    value={currentMaterial.sustainabilityMetrics.carbonEmission}
+                    value={currentMaterial.sustainabilityMetrics.carbonEmission + 'mt'}
                     minRows={1}
                     width={'100%'}
                   />
+                  <Grid.Container gap={1.5} justify='center'>
+                    <Grid xs>
+                      <Textarea
+                        readOnly
+                        label="Electricity Used"
+                        placeholder="0"
+                        value={currentMaterial.sustainabilityMetrics.electricityUsed + 'mw'}
+                        minRows={1}
+                        width={'100%'}
+                      />
+                    </Grid>
+                    <Grid xs>
+                      <Textarea
+                        readOnly
+                        label="Water Used"
+                        placeholder="0"
+                        value={currentMaterial.sustainabilityMetrics.waterUsed + 'g'}
+                        minRows={1}
+                        width={'100%'}
+                      />
+                    </Grid>
+                  </Grid.Container>
                   <Textarea
                     readOnly
-                    label="Electricity Used"
-                    placeholder="0"
-                    value={currentMaterial.sustainabilityMetrics.electricityUsed}
-                    minRows={1}
+                    label='Waste Products'
+                    value={currentMaterial.sustainabilityMetrics.waste.join(', ')}
                     width={'100%'}
+                    rows={2}
                   />
-                  <Textarea
-                    readOnly
-                    label="Water Used"
-                    placeholder="0"
-                    value={currentMaterial.sustainabilityMetrics.waterUsed}
-                    minRows={1}
-                    width={'100%'}
-                  />
-                  {
-                    currentMaterial.sustainabilityMetrics.waste.map(waste => {
-                      return (
-                        <Text key={waste}>{waste}</Text>
-                      )
-                    })
-                  }
                 </Collapse>
               </Collapse.Group>
 
               {/* Raw Materials */}
-              <Collapse.Group>
-                <Collapse title="Raw Materials">
-                  {
-                    currentMaterial.rawMaterials.map(mat => {
-                      return (
-                        <Text key={mat}>{mat}</Text>
-                      )
-                    })
-                  }
-                </Collapse>
-              </Collapse.Group>
+              <Textarea
+                readOnly
+                label='Raw Materials'
+                value={currentMaterial.rawMaterials.join(', ')}
+                width={'100%'}
+                rows={2}
+              />
 
               {/* <Collapse.Group>
                 {
