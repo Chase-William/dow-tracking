@@ -117,7 +117,11 @@ export default function Home() {
   }
 
   const [materials, setMaterials] = React.useState(new Map())
-  const [currentMaterial, setCurrentMaterial] = React.useState()
+
+  // remove default value for anything other than ui testing/dev
+  const [currentMaterial, setCurrentMaterial] = React.useState(null)
+  //const [currentMaterial, setCurrentMaterial] = React.useState(getData()[0])
+
 
 
 
