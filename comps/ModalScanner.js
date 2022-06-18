@@ -2,7 +2,7 @@ import React from "react";
 import { Modal, Button, Text, Input, Row, Checkbox } from "@nextui-org/react";
 import Scanner from './Scanner';
 
-export default function ModalScanner({ handleMaterialScanned }) {
+export default function ModalScanner({ handleMaterialScanned, btnText, btnSize }) {
   const [visible, setVisible] = React.useState(false);
   const handler = () => setVisible(true);
 
@@ -18,8 +18,14 @@ export default function ModalScanner({ handleMaterialScanned }) {
 
   return (
     <div>
-      <Button size="lg" auto shadow onClick={handler}>
-        Scan
+      <Button 
+        size={!!btnSize ? btnSize : 'lg' } 
+        auto 
+        shadow 
+        onClick={handler}
+        style={{background: '#00b2ae', fontWeight: 600}}       
+      >
+        {btnText}
       </Button>
       <Modal
         fullScreen

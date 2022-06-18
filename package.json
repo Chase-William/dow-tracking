@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "@nextui-org/react": "^1.0.0-beta.9",
+    "@react-spring/web": "^9.4.5",
     "modern-react-qr-reader": "^1.0.12",
     "next": "12.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-qr-scanner": "^1.0.0-alpha.8"
+    "react-qr-scanner": "^1.0.0-alpha.8",
+    "react-wavify": "^1.5.7"
   },
   "devDependencies": {
     "eslint": "8.17.0",
