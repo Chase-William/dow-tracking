@@ -2,6 +2,7 @@ import Wave from 'react-wavify'
 import CustomTitle from './CustomTitle/CustomTitle'
 import { Spacer } from '@nextui-org/react'
 import ModalScanner from './ModalScanner'
+import { getRouteMatcher } from 'next/dist/shared/lib/router/utils'
 
 export default function CustomEpicHeader({ materials, handleMaterialScanned }) {
   return (
@@ -18,13 +19,13 @@ export default function CustomEpicHeader({ materials, handleMaterialScanned }) {
         handleMaterialScanned={handleMaterialScanned}
         btnText='Scan to Start'
       />
-      <Wave
+      {/* <Wave
+      className='styles.rotated'
         style={{
           position: 'fixed',
           top: 0,
           padding: 0,
-          margin: -7,
-          rotate: '180deg'
+          margin: -7,          
         }}
         width='100%'        
         fill='#01466f'
@@ -35,7 +36,7 @@ export default function CustomEpicHeader({ materials, handleMaterialScanned }) {
           speed: 0.3,
           points: 5
         }}
-      />
+      /> */}
       <Wave 
         style={{
           position: 'fixed',
