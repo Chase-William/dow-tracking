@@ -29,7 +29,7 @@ export default function TrackingBody({ currentMaterial }) {
             readOnly
             label="Material Name"
             placeholder="N/A"
-            value="..."
+            value="HDPE"
             minRows={1}
             width={'100%'}
           />
@@ -50,8 +50,8 @@ export default function TrackingBody({ currentMaterial }) {
           <Textarea
             readOnly
             label="Customer"
-            value="..."
-            placeholder="N/A"
+            value="DuPont"
+            placeholder="..."
             minRows={1}
             width={'100%'}
           />
@@ -69,7 +69,7 @@ export default function TrackingBody({ currentMaterial }) {
         readOnly
         label="Quantity"
         placeholder="0"
-        value={currentMaterial.quantity}
+        value={currentMaterial.quantity + 'mt'}
         minRows={1}
         width={'100%'}
       />

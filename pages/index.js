@@ -23,28 +23,28 @@ const getData = () => {
       "transits": [
         {
           "transitId": "352351",
-          "dateTimeDeparture": "10:45:00 10/08/2022",
-          "dateTimeReceived": "12:45:00 10/08/2022",
+          "dateTimeDeparture": "10:45:00am 10/06/2022",
+          "dateTimeReceived": "12:50:00pm 10/06/2022",
           "deliveredFrom": "3475 E North Union Rd, Bay City, MI 48706",
-          "deliveredTo": "3475 E North Union Rd, Bay City, MI 48706",
+          "deliveredTo": "2235 E Oak St, Conway, AR 72032",
           "transitType": "Train",
           "arrived": true
         },
         {
           "transitId": "235235",
-          "dateTimeDeparture": "10:45:00 10/08/2022",
-          "dateTimeReceived": "12:45:00 10/08/2022",
+          "dateTimeDeparture": "07:25:00am 10/07/2022",
+          "dateTimeReceived": "12:00:00pm 10/07/2022",
           "deliveredFrom": "3475 E North Union Rd, Bay City, MI 48706",
-          "deliveredTo": "3475 E North Union Rd, Bay City, MI 48706",
+          "deliveredTo": "2235 E Oak St, Conway, AR 72032",
           "transitType": "Train",
           "arrived": true
         },
         {
           "transitId": "325325",
-          "dateTimeDeparture": "10:45:00 10/08/2022",
-          "dateTimeReceived": "12:45:00 10/08/2022",
+          "dateTimeDeparture": "10:45:00am 10/08/2022",
+          "dateTimeReceived": "12:30:00pm 10/08/2022",
           "deliveredFrom": "3475 E North Union Rd, Bay City, MI 48706",
-          "deliveredTo": "3475 E North Union Rd, Bay City, MI 48706",
+          "deliveredTo": "2235 E Oak St, Conway, AR 72032",
           "transitType": "Train",
           "arrived": true
         }
@@ -54,15 +54,15 @@ const getData = () => {
         "electricityUsed": 20,
         "waterUsed": 10,
         "waste": [
-          "Something",
-          "Something Else",
-          "Something More"
+          "PMON7",
+          "PMON8",
+          "PMON9"
         ]
       },
       "rawMaterials": [
-        "Something",
-        "Something Else",
-        "Something More"
+        "thylene monomer",
+        "virgin polyethylene granulates",
+        "recycled HDPE"
       ]
     },
     {
@@ -74,8 +74,8 @@ const getData = () => {
       "transits": [
         {
           "transitId": "352351",
-          "dateTimeDeparture": "10:45:00 10/08/2022",
-          "dateTimeReceived": "12:45:00 10/08/2022",
+          "dateTimeDeparture": "10:45:00am 10/06/2022",
+          "dateTimeReceived": "12:50:00pm 10/06/2022",
           "deliveredFrom": "3475 E North Union Rd, Bay City, MI 48706",
           "deliveredTo": "3475 E North Union Rd, Bay City, MI 48706",
           "transitType": "Train",
@@ -83,8 +83,8 @@ const getData = () => {
         },
         {
           "transitId": "235235",
-          "dateTimeDeparture": "10:45:00 10/08/2022",
-          "dateTimeReceived": "12:45:00 10/08/2022",
+          "dateTimeDeparture": "07:25:00am 10/07/2022",
+          "dateTimeReceived": "12:00:00pm 10/07/2022",
           "deliveredFrom": "3475 E North Union Rd, Bay City, MI 48706",
           "deliveredTo": "3475 E North Union Rd, Bay City, MI 48706",
           "transitType": "Train",
@@ -92,8 +92,8 @@ const getData = () => {
         },
         {
           "transitId": "325325",
-          "dateTimeDeparture": "10:45:00 10/08/2022",
-          "dateTimeReceived": "12:45:00 10/08/2022",
+          "dateTimeDeparture": "10:45:00am 10/08/2022",
+          "dateTimeReceived": "12:30:00pm 10/08/2022",
           "deliveredFrom": "3475 E North Union Rd, Bay City, MI 48706",
           "deliveredTo": "3475 E North Union Rd, Bay City, MI 48706",
           "transitType": "Train",
@@ -111,9 +111,9 @@ const getData = () => {
         ]
       },
       "rawMaterials": [
-        "Something",
-        "Something Else",
-        "Something Less"
+        "PMON7",
+        "PMON8",
+        "PMON9"
       ]
     }
   ])
